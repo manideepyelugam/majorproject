@@ -1,0 +1,107 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+<% layout("./layouts/boilerplate") %>
+<script>
+    const mapToken =  "<%=process.env.MAP_TOKEN%>"
+    const coordinates = <%-JSON.stringify(obj.geometry.coordinates)%>
+</script>
+<body>
+    <div class="row-8">
+        <div class="col-8 offset-4"><h3><%=obj.title%></h3></div>
+     <div class="cards col-4 offset-4">
+    
+        <img class="card-img-top " src="<%=obj.image%>" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text tex"><br>
+            <div>Owned by <i><%= obj.owner.username %></i></div><br>
+            <%= obj.description %> <br> &#8377; <%= obj.price.toLocaleString("en-IN") %> <br> <%= obj.location %> <br> <%= obj.country %>
+
+        </p>
+
+        <div class="buttons md-3">
+            <form action="/listing" method="get"><button class="btn btn-light butto mb-3">Back</button></form><br>
+   <% if (curruser && curruser._id.equals(obj.owner._id)) { %>
+    <form action="/listings/<%=obj._id%>/edit" method="get"><button class="btn btn-warning butto">Edit</button></form><br><br>
+    <form action="/del/<%=obj._id%>" method="post"><button class="btn btn-danger butto">Delete this listing</button></form>
+   <% } %>            
+        </div>
+           
+<br>
+      <% if (curruser) { %>    
+        <hr>
+            <div class="mb-3">
+                <h4>Leave a Review</h4>
+                <form action="/listings/<%=obj._id%>/reviews" method="post" novalidate class="needs-validation">
+                    <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="range" min="1" max="5" name="review[rating]" id="rating" class="form-range"></div>
+                    <div class="mb-3">
+                    <label for="comment" class="form-label">Comment</label>
+                    <textarea name="review[comment]" id="comment" cols="30" rows="3" class="form-control" placeholder="Type your review.." required></textarea></div>
+ 
+                    <button class="btn btn-light mb-3">Submit</button>
+                </form>
+            </div>
+            <hr>
+            <% } %>  
+      </div>
+</div>
+<div class="col-4 offset-4">
+<% if (obj.reviews.length > 0) { %>
+ 
+
+
+<h4>All Reviews</h4>
+<div class="row ">
+<%for(let rev of obj.reviews){%>
+<div class="card col-5 ms-4">
+
+        <div class="card-body">
+             <%= rev.username %>
+
+            <h5 class="card-title">@ <%= rev.author.username %></h5>
+          <p class="card-text"><%= rev.comment %></p>
+          <p class="card-text"><%= rev.rating %> Stars</p>
+          <% if (curruser && curruser.username === rev.author.username) { %>
+         
+            <form action="/listings/<%=obj._id%>/reviews/<%=rev._id%>?_method=DELETE" method="POST" ><button class="btn btn-light mb-3 ">Delete</button></form>
+
+              
+          <% } %>
+        </div>
+      </div> <% } %>
+
+</div><% } %>
+<br>
+
+
+<div class="col-8  mb-3">
+    <h3>Where you'll go</h3>
+    <div id="map" class="mt-4 mb-3"></div>
+</div>
+</div>
+
+</div>
+
+<script src="/js/map.js"></script>
+
+<!-- <script>
+    let maptoken = "<%=process.env.MAP_TOKEN%>"
+    console.log(maptoken)
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWFuaWRlZXAyMDA1IiwiYSI6ImNscjBxbmtjbjBnazEycXBpMHlscnVjbnEifQ.yHG6NziA8zB364QbavFLiw';
+const map = new mapboxgl.Map({
+container: 'map', // container ID
+center: [79.5926, 17.9693], // starting position [lng, lat]
+zoom: 9 // starting zoom
+});
+</script>
+ -->
+
+
+</body>
+<!-- </html> -->

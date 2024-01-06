@@ -1,0 +1,23 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+<% layout("./layouts/boilerplate") %>
+<body>
+    <div class="row-8">
+    <h3>Edit your listings</h3>
+    <form action="/listings/<%=listings._id%>?_method=PUT" method="POST">
+        <div class="col-6 offset-3">
+        <div class="md-3"> <label for="title" class="form-label">Title</label><input class="form-control" type="text" name="listings[title]" value="<%=listings.title%>"></div><br>
+        <div class="md-3"> <label for="price" class="form-label">Price</label> <input class="form-control" type="number" name="listings[price]" value="<%=listings.price%>"></div><br>
+            <div class="md-3"> <label for="description" class="form-label">Description</label>  <textarea class="form-control" name="listings[description]"  ><%=listings.description%></textarea></div> <br>
+                <div class="md-3"> <label for="location" class="form-label">Location</label>  <input class="form-control" type="text" name="listings[location]" value="<%=listings.location%>"></div><br>
+                    <div class="md-3"> <label for="country" class="form-label">Country</label>  <input class="form-control" type="text" name="listings[country]" value="<%=listings.country%>"></div><br>
+                        <div class="md-3"> <label for="image" class="form-label">Image</label>   <input class="form-control" type="text" name="listings[image]" value="<%=listings.image%>"></div>
+        <button class="btn btn-success">submit</button></div>
+    </form></div>
+</body>
+<!-- </html> -->

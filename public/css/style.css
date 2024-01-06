@@ -1,0 +1,176 @@
+body{
+    background-color: rgb(39, 38, 38);
+    color: white;
+    /* width: 100%; */
+    
+}
+
+
+
+
+
+.row{
+   
+    position: relative;
+    left: 15px;
+    width: 100%;
+}
+
+.navbar{
+    height: 80px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.fa-compass{
+     color: #FFED00;
+     font-size: 35px;
+}
+
+.nav-link{
+    color:white ;
+}
+
+.nav-link:hover{
+    color: #FFED00;
+}
+
+
+/* footer */
+.f-info-links a{
+    text-decoration: none;
+    color: white;
+    margin-right: 12px;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: yellow;
+}
+
+.f-info-social i:hover{
+    color: yellow;
+}
+
+.f-info-links,.f-info-social{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.f-info-social i{
+    font-size: 23px;
+    margin-right: 6px;
+
+}
+
+.f-info{
+    display: flex;
+    height: 160px;
+    background-color: rgb(0, 0, 0);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    margin-top: auto;
+}
+
+
+
+
+/* placing the footer at the bootom of every page */
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer{
+    margin-top: auto;
+}
+
+
+
+/* cards */
+
+.card{
+    border: none;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.card{
+    background-color: black !important;
+    color: white !important;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+.card a{
+    color: white;
+    text-decoration: none;
+}
+
+.card a:hover{
+    color: #FFED00;
+    
+}
+.card-img-top{
+    border-radius: 1rem;
+    margin-top: 10px;
+    object-fit: cover;
+    height: 300px;
+}
+
+/* .card:hover{
+    scale: 1 !important;
+} */
+/* .card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+} */
+
+.btn{
+    position: relative;
+    top: 20px;
+
+}
+
+h3{
+    position: relative;
+    top: 10px;
+}
+
+.buttons{
+    display: flex;
+    
+}
+
+.butto{
+    margin-left: 10px
+}
+
+/* map */
+#map { 
+
+    height: 400px;
+    width: 66vh;
+ }
